@@ -14,15 +14,18 @@ class MyApp extends StatelessWidget {
 }
 
 class RandomWordsState extends State<RandomWords> {
-final List<WordPair> _suggestions = <WordPair>[];
-final Set<WordPair> _saved = Set<WordPair>();
-final TextStyle _biggerFont = TextStyle(fontSize: 18.0);
+  final List<WordPair> _suggestions = <WordPair>[];
+  final Set<WordPair> _saved = Set<WordPair>();
+  final TextStyle _biggerFont = TextStyle(fontSize: 18.0);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Startup Name Generator'),
+        actions: <Widget>[
+          IconButton(icon: Icon(Icons.list), onPressed: _pushSaved),
+        ],
       ),
       body: _buildSuggestions(),
     );
@@ -63,6 +66,10 @@ final TextStyle _biggerFont = TextStyle(fontSize: 18.0);
         });
       },
     );
+  }
+
+  void _pushSaved() {
+    
   }
 }
 
